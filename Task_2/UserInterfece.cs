@@ -38,6 +38,13 @@ namespace Task_2
             Console.ForegroundColor = defoltColor;
         }
 
+        public void HeadShow(string titelText)
+        {
+            Console.WriteLine(new String('-',80));
+            Console.WriteLine(titelText);
+            Console.WriteLine(new String('-', 80));
+        }
+
 
     }
 }
