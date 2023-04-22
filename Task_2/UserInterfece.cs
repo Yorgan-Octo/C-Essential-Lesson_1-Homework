@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task_2
 {
-    internal class UserInterfece
+    public class UserInterfece
     {
 
         public double InDoubleNam(string textInfo = "Введіть число: ")
