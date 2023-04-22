@@ -10,15 +10,8 @@ namespace Task_3
     {
         static void Main(string[] args)
         {
-
-            //Використовуючи Visual Studio, створіть проект за шаблоном Console Application. 
-            //Потрібно: Створити клас Book.Створити класи Title, Author та Content, 
-            //кожен з яких повинен містити одне рядкове поле та метод void Show(). 
-            //Реалізуйте можливість додавання до книги назви книги, імені автора та змісту. 
-            //Виведіть на екран різними кольорами за допомогою методу Show() назву книги, ім'я автора та зміст.
-
-
             Data data = new Data();
+            Book book = new Book();
 
             List<Book> list = new List<Book>()
             {
@@ -37,31 +30,34 @@ namespace Task_3
                     item.AllInfoBook();
                 }
 
-
                 Console.WriteLine(new String('=', 100));
                 Console.WriteLine("Виберіть дію:");
-                Console.Write("Натисніть N - цоб додати нову книгу; Натисніть Y - цоб редагувати книгу; ");
+                Console.Write("Натисніть N - цоб додати нову книгу;");
 
                 ConsoleKeyInfo button = Console.ReadKey();
 
+                //Я хотів реалізувати ще редагування книги але часу взагалі немае(
                 switch (button.Key)
                 {
                     case ConsoleKey.N:
                         {
-
-                            Book book = new Book();
-
                             Console.Clear();
-
-                            //використав кортеж чисто для практики можно булоб і без неї
+                            //використав кортеж чисто для практики можно булоб і без ньго
                             var infoBook = book.AddNewBook();
 
-                            list.Add(new Book(infoBook.Item1, infoBook.Item2, infoBook.Item3));
+                            if (infoBook.Item1.TextTitle != "" && infoBook.Item2.Name != "" && infoBook.Item3.TextContent != "")
+                            {
+                                list.Add(new Book(infoBook.Item1, infoBook.Item2, infoBook.Item3));
+                                data.ErrorText("Книга доданна", ConsoleColor.Green);
+                            }
+                            else
+                            {
+                                data.ErrorText("Нажаль ви не ввели якісь данні!");
+                            }
 
-                            break;
-                        }
-                    case ConsoleKey.Y:
-                        {
+
+                            Console.WriteLine("Натисніть на любу кнопку для вигоду в меню");
+                            Console.ReadKey();
                             break;
                         }
                     default:
@@ -69,6 +65,8 @@ namespace Task_3
                             break;
                         }
                 }
+
+                Console.Clear();
             }
 
 

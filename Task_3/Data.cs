@@ -105,11 +105,11 @@ namespace Task_3
             }
         }
 
-        public void ErrorText(string textError = "Помилка вхідних данних!")
+        public void ErrorText(string textError = "Помилка вхідних данних!", ConsoleColor erroeColor = ConsoleColor.Red)
         {
             ConsoleColor defoltColor = Console.ForegroundColor;
 
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = erroeColor;
             Console.WriteLine(textError);
             Console.ForegroundColor = defoltColor;
         }

@@ -9,6 +9,7 @@ namespace Task_3
 {
     public class Book
     {
+        Data data = new Data();
         public Title Title { set; get; }
         public Author Author { set; get; }
         public Content Content { set; get; }
@@ -38,7 +39,6 @@ namespace Task_3
 
         public (Title, Author, Content) AddNewBook()
         {
-            Data data = new Data();
             data.OutText(" Додавання нової книги: вкажить назву, імя автора, та синопсис!");
 
             Title nameBook = new Title(data.InUsstring("Введіть назву книги: "));
